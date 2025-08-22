@@ -1,0 +1,143 @@
+/* === CSS UNTUK HERO SECTION (SUDAH DIPERBAIKI) === */
+
+
+/* CSS Reset - Taruh di paling atas file CSS Anda */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    /* Anda bisa tambahkan styling body spesifik di sini */
+    font-family: sans-serif; 
+}
+
+.hero-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.logo {
+    width: 20%; /* Atur sesuai kebutuhan */
+    height: auto; /* Agar proporsional */
+    z-index: 10; /* Pastikan logo di atas konten lainnya */
+}
+
+.hero-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: hero-fade 15s infinite;
+}
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+
+@keyframes hero-fade {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 4s; }
+.slide:nth-child(3) { animation-delay: 8s; }
+.slide:nth-child(4) { animation-delay: 12s; }
+.slide:nth-child(5) { animation-delay: 16s; }
+.slide:nth-child(6) { animation-delay: 20s; }
+.slide:nth-child(7) { animation-delay: 24s; }
+.slide:nth-child(8) { animation-delay: 28s; }
+
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    padding: 30px 40px;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 90%; /* Gunakan persentase agar fleksibel */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; /* Ukuran default untuk desktop */
+    color: #facc15;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.2rem; /* Ukuran default untuk desktop */
+    margin: 10px 0;
+}
+
+.hero-buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hero-btn {
+    padding: 12px 24px;
+    border-radius: 12px;
+    background: #facc15;
+    color: #1a1a1a;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.hero-btn:hover {
+    background: #eab308;
+    transform: translateY(-3px);
+}
+
+/* === MEDIA QUERY UNTUK RESPONSIVE DI MOBILE === */
+@media screen and (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 1.8rem; /* Ukuran font judul dikecilkan */
+    }
+
+    .hero-content p {
+        font-size: 1rem; /* Ukuran font paragraf dikecilkan */
+    }
+
+    .hero-content {
+        padding: 20px; /* Jarak padding dikecilkan */
+    }
+
+    .hero-buttons {
+        flex-direction: column; /* Tombol disusun ke bawah */
+        gap: 15px;
+    }
+}

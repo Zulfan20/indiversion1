@@ -1,0 +1,104 @@
+/* === CSS UNTUK PERFORMANCE SECTION === */
+:root {
+    /* Variabel ini bisa diletakkan di file CSS global */
+    --timeline-purple: #ac3781;
+    --timeline-gold: #ffd700;
+}
+
+.performance-section {
+    padding: 80px 20px;
+    background-color: #fdfbf6;
+    counter-reset: timeline-counter; /* Mulai counter untuk penomoran */
+}
+
+.highlight {
+    color: #b47b35;
+}
+
+.performance-main-title {
+    font-family: 'Playfair Display', serif;
+    border-bottom: 2px solid black;
+    display: inline-block;
+    margin: 0 auto 50px auto;
+    font-size: 2.5rem;
+    text-align: center;     
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+/* Garis tengah timeline */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: #ccc;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+}
+/* Lingkaran nomor */
+.timeline-item::after {
+    content: counter(timeline-counter);
+    counter-increment: timeline-counter;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    top: 15px;
+    right: -23px;
+    background-color: #f4f4f4;
+    border: 4px solid var(--timeline-gold);
+    text-align: center;
+    font-weight: bold;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd) { left: 0; }
+.timeline-item:nth-child(even) { left: 50%; }
+
+.timeline-item:nth-child(even)::after {
+    left: -23px;
+    border-color: var(--timeline-purple);
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid var(--timeline-gold);
+    transition: transform 0.3s ease; 
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    border-top-color: var(--timeline-purple);
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-title { margin-top: 0; }
+.timeline-text { font-size: 0.9rem; line-height: 1.5; }
+.timeline-image img { width: 100%; border-radius: 4px; margin-top: 10px; }
+
+/* Responsif untuk layar kecil */
+@media screen and (max-width: 768px) {
+    .timeline::after { left: 30px; }
+    .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+    .timeline-item:nth-child(even) { left: 0; }
+    .timeline-item::after { left: 5px; }
+    .timeline-item:nth-child(even)::after {
+    left: 5px;}
+}

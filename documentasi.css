@@ -1,0 +1,29 @@
+.documentation {
+  padding: 40px 20px;
+  background: #f4e1b3;
+}
+
+.doc-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Grid 4 kolom */
+  gap: 15px;
+}
+ 
+.doc-item img {
+  width: 90%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.doc-item img:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .doc-gallery {
+    grid-template-columns: repeat(1, 1fr);}
+  }
