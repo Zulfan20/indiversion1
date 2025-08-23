@@ -1,0 +1,20 @@
+.audio-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#audioBtn {
+  padding: 5px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #facc15;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+#audioBtn:hover {
+  background-color: rgb(150, 145, 18);
+}
